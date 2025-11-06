@@ -1,31 +1,32 @@
-import { StyleSheet } from 'react-native';
+import { styles } from "@/styles/mainViewStyle";
+import { Image, Text, TextInput, View } from "react-native";
 
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
+const loginIcon = require('../../assets/images/loginIcon.png')
 
-export default function TabOneScreen() {
+export default function IndexPage(){
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
+   <View style={styles.main} >
+    <View style={styles.containerImage}>
+      <Image  source={loginIcon} style={styles.image}/>
     </View>
+
+    <Text>SEJA BEM VINDO</Text>
+
+   <View style={styles.form}>
+    <View style={[styles.form, { gap : 8}]}>
+      <Text>Email</Text>
+      <TextInput style={styles.input} placeholder="Digite o seu Email" />
+    </View>
+
+     <View style={[styles.form, { gap : 8, marginTop : 8}]}>
+      <Text>Senha</Text>
+      <TextInput style={styles.input} placeholder="Digite a sua senha" />
+    </View>
+   </View>
+
+
+
+  </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});
