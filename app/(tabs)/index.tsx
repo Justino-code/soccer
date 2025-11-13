@@ -16,12 +16,12 @@ export default function IndexPage(){
    <View style={styles.form}>
     <View style={[styles.form, { gap : 8}]}>
       <Text>Email</Text>
-      <TextInput style={styles.input} placeholder="Digite o seu Email" />
+      <TextInput placeholderTextColor='#595959' style={styles.input} placeholder="Digite o seu Email" />
     </View>
 
      <View style={[styles.form, { gap : 8, marginTop : 8}]}>
       <Text>Senha</Text>
-      <TextInput style={styles.input} placeholder="Digite a sua senha" />
+      <TextInput placeholderTextColor='#595959' style={styles.input} placeholder="Digite a sua senha" />
     </View>
    </View>
 
