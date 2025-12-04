@@ -89,7 +89,7 @@ Os estudantes devem usar o Figma como referência para:
 ### 1. Clonar o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/soccer-app.git
+git clone https://github.com/Djosekispy/soccer.git
 cd soccer-app
 ```
 
