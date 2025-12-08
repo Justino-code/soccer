@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Image, Text, View } from "react-native";
 import { Match } from "./data/matches";
 
 
@@ -73,26 +73,6 @@ export const MatchCard = ({ awayLogo,awayTeam,homeLogo,homeTeam,id,league,league
         </View>
       </View>
 
-      {/* Botão */}
-      <TouchableOpacity
-        style={{
-          marginTop: 16,
-          backgroundColor: "#FF4B7D",
-          paddingVertical: 8,
-          borderRadius: 10,
-        }}
-      >
-        <Text
-          style={{
-            color: "#fff",
-            textAlign: "center",
-            fontWeight: "600",
-            fontFamily:"Irish-Grover"
-          }}
-        >
-          Details
-        </Text>
-      </TouchableOpacity>
     </View>
   );
 };

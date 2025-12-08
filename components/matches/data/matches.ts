@@ -79,5 +79,5 @@ export interface Match {
   awayLogo: string;
   scoreHome: number | null;
   scoreAway: number | null;
-  time: number | string; 
+  time: number | string | Date; 
 }
