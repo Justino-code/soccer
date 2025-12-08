@@ -1,7 +1,9 @@
 import logo from "@/assets/images/logo.png";
 import CalenderCarousel from "@/components/calender/calenderCarousel";
+import ScoreCarousel from "@/components/competition/ScoreCarousel";
 import MatchesCarousel from "@/components/matches/MatchesCarousel";
 import UpcomingCarousel from "@/components/matches/upcomingCarousel";
+import useCompetition from "@/hooks/competition/useCompetition";
 import useMatches from "@/hooks/matches/useMatches";
 import IndexStyles from "@/styles/home-index/styles";
 import { Ionicons } from "@expo/vector-icons";
@@ -16,8 +18,8 @@ enum tabsEmun {
 
 export default function IndexPage(){
  const { fetchAllMatches,fetchMatchByDate,fetchMatchLive,isLoading,matches,upcomingMatches } = useMatches();
+ const { competitions,fetchAllCompetitions,fetchCompetitionById,fetchCompetitionByName,fetchScoreCompetitionById,score,standing } = useCompetition();
  const [tab, setTabs] = useState<tabsEmun>(tabsEmun.upcoming);
- const [macthDate, setMatchDate] = useState<Date>(new Date());
 
 
   return (
@@ -39,24 +41,25 @@ export default function IndexPage(){
       </TouchableOpacity>
       
     </View>
-     <MatchesCarousel macthDate={macthDate} isLoading={isLoading} matches={matches}/>
+     <MatchesCarousel  isLoading={isLoading} matches={matches}/>
 <ScrollView style={{width: "100%", flex:1, marginTop: 20}}>
   
      <View style={{width: "100%", flexDirection: "row", justifyContent: "space-around", alignItems: "center", marginTop: 30, paddingHorizontal: 14}}>
       <TouchableOpacity onPress={()=>setTabs(tabsEmun.upcoming)} style={{alignItems: "center", borderBottomWidth: 2, flexGrow: 1, borderBottomColor: tab == tabsEmun.upcoming ? "#F63D68" : "transparent", paddingBottom: 6}}>
-        <Text style={{color : "#fff",fontFamily:"Irish-Grover"}}>Upcoming</Text>
+        <Text style={{color :  tabsEmun.upcoming == tab ? "#fff" : "#5D5C64",fontFamily:"Irish-Grover"}}>Upcoming</Text>
       </TouchableOpacity>
 
        <TouchableOpacity onPress={()=>setTabs(tabsEmun.score)} style={{alignItems: "center",borderBottomWidth: 2,flexGrow: 1, borderBottomColor: tab == tabsEmun.score ? "#F63D68" : "transparent", paddingBottom: 6}}>
-        <Text style={{color : "#fff", fontFamily:"Irish-Grover"}}>Score</Text>
+        <Text style={{color :  tabsEmun.score == tab ? "#fff" : "#5D5C64", fontFamily:"Irish-Grover"}}>Score</Text>
       </TouchableOpacity>
 
        <TouchableOpacity onPress={()=>setTabs(tabsEmun.favorites)} style={{alignItems: "center",borderBottomWidth: 2, flexGrow: 1,borderBottomColor: tab == tabsEmun.favorites ? "#F63D68" : "transparent", paddingBottom: 6}}>
-        <Text style={{color : "#fff",fontFamily:"Irish-Grover"}}>Favorites</Text>
+        <Text style={{color :  tabsEmun.favorites == tab ? "#fff" : "#5D5C64",fontFamily:"Irish-Grover"}}>Favorites</Text>
       </TouchableOpacity>
      </View>
 
      {tab == tabsEmun.upcoming && <UpcomingCarousel matches={upcomingMatches} />}
+      {tab == tabsEmun.score && <ScoreCarousel Scores={score} />}
 </ScrollView>
   </View>
   );

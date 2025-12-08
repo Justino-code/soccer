@@ -4,12 +4,11 @@ import { MatchCard } from "./MatchCard";
 import { ApiResponse } from "./data/matches";
 
 interface Props {
-  macthDate : Date;
   isLoading?: boolean;
   matches?: ApiResponse[];
 }
 
-export default function MatchesCarousel({macthDate,isLoading,matches }:Props) {
+export default function MatchesCarousel({isLoading,matches }:Props) {
 
 
   return (
