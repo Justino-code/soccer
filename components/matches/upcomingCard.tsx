@@ -27,8 +27,8 @@ export const UpcomingCard = ({ awayLogo,awayTeam,homeLogo,homeTeam,scoreAway,sco
 
 {/* Date Time */}
 <View style={{ flexDirection:"column", justifyContent:"center", alignItems:"center", paddingHorizontal: 12}}>
-<Text style={{color:"#fff"}}>FT</Text>
-<Text style={{color:"#fff"}}>{formatTime(time as any)}</Text>
+<Text style={{color:"#5D5C64"}}>FT</Text>
+<Text style={{color:"#5D5C64"}}>{formatTime(time as any)}</Text>
 </View>
 
 {/* Matche Info */}
@@ -41,7 +41,7 @@ export const UpcomingCard = ({ awayLogo,awayTeam,homeLogo,homeTeam,scoreAway,sco
         }}
 >
         {/* Home */}
-        <View style={{ alignItems: "center", flexDirection:"row" }}>
+        <View style={{ alignItems: "center", flexDirection:"row", gap: 6 }}>
           <Image
             source={{ uri: homeLogo }}
             style={{ width: 20, height: 20, marginBottom: 6 }}
@@ -54,7 +54,7 @@ export const UpcomingCard = ({ awayLogo,awayTeam,homeLogo,homeTeam,scoreAway,sco
       
 
         {/* Away */}
-        <View style={{ alignItems: "center",flexDirection:"row" }}>
+        <View style={{ alignItems: "center",flexDirection:"row",gap: 6 }}>
           <Image
             source={{ uri: awayLogo }}
             style={{ width: 20, height: 20 }}
